@@ -21,15 +21,20 @@ async function fetchColors(url) {
     const color = await res.json();
     console.log(color);
     const colorArr = color.colors;
-    colorArr.forEach((color) => {
-      colorContainer.innerHTML += `
-        <div class="color-wrapper-div">
-                <img src="${color.image.bare}"/>
-                <p>${color.hex.value}</p>
-        </div>
-        `;
-    });
+    renderColor(colorArr);
   } catch (err) {
     console.error(err);
   }
+}
+
+function renderColor(colorArr) {
+  colorContainer.innerHTML = "";
+  colorArr.forEach((color) => {
+    colorContainer.innerHTML += `
+        <div class="color-wrapper-div">
+                <div class="background-div" style="background-color:${color.hex.value}"></div>
+                <p>${color.hex.value}</p>
+        </div>
+        `;
+  });
 }
