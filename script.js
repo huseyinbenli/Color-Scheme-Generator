@@ -1,4 +1,5 @@
 const colorContainer = document.getElementById("container");
+const clipboardSection = document.getElementById("clipboard-section");
 const formEl = document.getElementById("form");
 const baseURL = "https://www.thecolorapi.com";
 const endPoint = "/scheme";
@@ -38,3 +39,17 @@ function renderColor(colorArr) {
         `;
   });
 }
+
+colorContainer.addEventListener("click", (e) => {
+  if (e.target.innerText) {
+    navigator.clipboard.writeText(e.target.innerText);
+
+    const clipboardText = document.createElement("p");
+    clipboardText.innerHTML = "Copied to Clipboard";
+    clipboardSection.appendChild(clipboardText);
+
+    setTimeout(() => {
+      clipboardSection.innerHTML = "";
+    }, 2000);
+  }
+});
