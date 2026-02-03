@@ -58,9 +58,37 @@ select {
 button {
   width: 200px;
   background-color: white;
+  cursor: pointer;
 }
 
 .color-wrapper-div {
   width: 100%;
   text-align: center;
+}
+
+#container p {
+  cursor: pointer;
+}
+
+#clipboard-section p {
+  width: max-content;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 6px;
+}
+
+@media (width < 770px) {
+  #container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-flow: dense;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .background-div {
+    height: 200px;
+  }
 }
