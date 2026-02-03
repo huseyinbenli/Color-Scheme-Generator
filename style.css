@@ -58,7 +58,6 @@ select {
 button {
   width: 200px;
   background-color: white;
-  cursor: pointer;
 }
 
 .color-wrapper-div {
@@ -66,7 +65,9 @@ button {
   text-align: center;
 }
 
-#container p {
+#container p,
+input,
+button {
   cursor: pointer;
 }
 
